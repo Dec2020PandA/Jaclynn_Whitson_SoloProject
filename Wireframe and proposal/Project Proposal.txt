@@ -1,0 +1,28 @@
+Project Explanation
+
+	Food By Fabio is a low cost, healthy meal prep option that gives customers the control of choosing their meals based on their fitness 
+goals.
+
+
+
+        - P0: must haves, basic required functionality and functionality-required features
+		- Login 
+		- Select different meal options
+		- Customers select delivery address or pickup
+		- pictures of meal samples on the page
+        - P1: neccesary features (beyond fundamentals) to showcase the purpose of the website
+		- customers select different size portions for custom meals
+		- Price changes based on the portion of the meal selected
+		- pickup locations display on the map 
+        - P2: nicer features you may not get to right away but are needed for overall product down the road
+		- Payment portal API connection
+		- Automatic reordering
+		- Automatic text message/ email communication
+		- Admin portal to print customer orders
+		- Admin portal to organize delivery of meals
+		- Admin portal to allow for creating delivery locations
+		-Admin portal to allow for adding/ changing ingredient options
+        - P3+: plans for the future of the project, fleshing it out to be "portfolio worthy"
+		- Admin portal optimizes delivery route
+		- Admin portal allows for adhoc reporting and exporting to CSV file
+		- Admin portal sends automatic emails
