@@ -8,9 +8,15 @@
 <meta charset="ISO-8859-1">
 <title>Food By Fabio - Healthy Nutrition Delivered</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
 </head>
 <body>
+<div class=container>
+	<div class=top-banner>
+	<img src="/images/Food-by-fabio-banner.png">
+	</div>
 
+
+
+</div>
 </body>
 </html>

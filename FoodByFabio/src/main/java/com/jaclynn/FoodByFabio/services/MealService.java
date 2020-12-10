@@ -9,6 +9,7 @@ import com.jaclynn.FoodByFabio.models.CustomMeal;
 import com.jaclynn.FoodByFabio.models.QuickMeal;
 import com.jaclynn.FoodByFabio.models.RandomMeal;
 import com.jaclynn.FoodByFabio.repositories.CustomMealRepository;
+import com.jaclynn.FoodByFabio.repositories.IngredientRepository;
 import com.jaclynn.FoodByFabio.repositories.QuickMealRepository;
 import com.jaclynn.FoodByFabio.repositories.RandomMealRepository;
 
@@ -20,6 +21,8 @@ public class MealService {
 	private QuickMealRepository qRepo;
 	@Autowired
 	private RandomMealRepository rRepo;
+	@Autowired
+	private IngredientRepository iRepo;
 	
 	//Get all
 	public List<CustomMeal> getAllCustomMeals(){

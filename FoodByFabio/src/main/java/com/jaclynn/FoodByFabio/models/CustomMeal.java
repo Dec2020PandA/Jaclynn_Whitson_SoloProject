@@ -1,12 +1,17 @@
 package com.jaclynn.FoodByFabio.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
@@ -20,24 +25,21 @@ public class CustomMeal {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotBlank
-	private String meat;
-	@NotBlank
-	private String meatPortion;
-	@NotBlank
-	private String carb;
-	@NotBlank
-	private String carbPortion;
-	@NotBlank
-	private String veggie;
-	@NotBlank
-	private String veggiePortion;
-	@NotBlank
 	private int quantity;
 	@DecimalMin(value="0.01")
 	private float price;
     @Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
+    
+    //many ingredients will be found in many meals
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+    	name = "custommealingredients",
+    	joinColumns = @JoinColumn(name = "ingredient_id"),
+    	inverseJoinColumns = @JoinColumn(name = "custommeal_id")
+    )
+    private List<Ingredient> ingredients;
     
     @PrePersist
 	protected void onCreate() {
@@ -61,54 +63,7 @@ public class CustomMeal {
 		this.id = id;
 	}
 
-	public String getMeat() {
-		return meat;
-	}
-
-	public void setMeat(String meat) {
-		this.meat = meat;
-	}
-
-	public String getMeatPortion() {
-		return meatPortion;
-	}
-
-	public void setMeatPortion(String meatPortion) {
-		this.meatPortion = meatPortion;
-	}
-
-	public String getCarb() {
-		return carb;
-	}
-
-	public void setCarb(String carb) {
-		this.carb = carb;
-	}
-
-	public String getCarbPortion() {
-		return carbPortion;
-	}
-
-	public void setCarbPortion(String carbPortion) {
-		this.carbPortion = carbPortion;
-	}
-
-	public String getVeggie() {
-		return veggie;
-	}
-
-	public void setVeggie(String veggie) {
-		this.veggie = veggie;
-	}
-
-	public String getVeggiePortion() {
-		return veggiePortion;
-	}
-
-	public void setVeggiePortion(String veggiePortion) {
-		this.veggiePortion = veggiePortion;
-	}
-
+	
 	public int getQuantity() {
 		return quantity;
 	}
@@ -139,6 +94,14 @@ public class CustomMeal {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
 	}
     
     
