@@ -19,7 +19,6 @@ public class Portion {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotBlank
 	private Float measurement;
 	@NotBlank
 	private String unit;

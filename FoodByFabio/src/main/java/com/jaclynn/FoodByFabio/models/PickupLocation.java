@@ -36,10 +36,11 @@ public class PickupLocation {
 	@NotBlank
 	@Size(max=2)
 	private String state;
-	@NotBlank
 	@Max(99999)
-	private int zip;
-    @Column(updatable=false)
+	private Integer zip;
+
+
+	@Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
     
@@ -118,13 +119,6 @@ public class PickupLocation {
 		this.state = state;
 	}
 
-	public int getZip() {
-		return zip;
-	}
-
-	public void setZip(int zip) {
-		this.zip = zip;
-	}
 
 	public Date getCreatedAt() {
 		return createdAt;
@@ -140,6 +134,30 @@ public class PickupLocation {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public String getDirection() {
+		return direction;
+	}
+
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	public Integer getZip() {
+		return zip;
+	}
+
+	public void setZip(Integer zip) {
+		this.zip = zip;
 	}
     
 }

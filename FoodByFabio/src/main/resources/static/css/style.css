@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+
+.meal-choice{
+	margin: 0 auto;
+	display: inline-block;
+	padding: 20px;
+	vertical-align: center;
+
+
+}
+.meal-choice div{
+	display: inline-block;
+}
+.meal-choice img{
+	width: 200px;	
+}
+
+.meal-choic p{
+	font-size: 14px;
+    height: 70px;
+    line-height: 120%;
+}

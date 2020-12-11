@@ -40,25 +40,6 @@
 	<input type="submit" value="Create"/>
 </form:form>
 
-<h1>New Product</h1>
-<form:form method="Post" action="/products/new" modelAttribute="product">
-	<div class="form-group">
-	<form:label path="name">Name:
-	<form:errors path="name"/>
-	<form:input path="name"/></form:label>
-	</div>
-		<div class="form-group">
-	<form:label path="description">Description:
-	<form:errors path="description"/>
-	<form:input path="description"/></form:label>
-	</div>
-		<div class="form-group">
-	<form:label path="price">Price:
-	<form:errors path="price"/>
-	<form:input path="price"/></form:label>
-	</div>
-	<input type="submit" value="Create"/>
-</form:form>
 
 <h1>Add Available Portions</h1>
 <form:form method="Post" action="/portions/new" modelAttribute="portion">
@@ -85,11 +66,12 @@
 	<form:label path="streetNumber">Street #:
 	<form:errors path="streetNumber"/>
 	<form:input path="streetNumber"/></form:label>
-	</div>
-		<div class="form-group">
-	<form:label path="direction">
-	<form:errors path="direction"/>
-	<form:input path="direction"/></form:label>
+	<select name="direction">
+	<option>N</option>
+	<option>S</option>
+	<option>E</option>
+	<option>W</option>
+	</select>
 	</div>
 			<div class="form-group">
 	<form:label path="streetName">Street Name:
