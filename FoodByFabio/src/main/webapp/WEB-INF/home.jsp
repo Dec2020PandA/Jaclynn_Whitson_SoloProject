@@ -10,13 +10,22 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-<div class=container>
-	<div class=top-banner>
+<div class="container">
+	<div class="top-banner">
 	<img src="/images/Food-by-fabio-banner.png">
 	</div>
-
-
-
+	<div class="custom-meals">
+	<p>Customize your portions to build the body you want.</p>
+	<a href="/custommeals" class="btn btn-success">Custom Meals</a>
+	</div>
+	<div class="quick-meals">
+	<p>Delicious recipes prepared to perfection to make health taste great!</p>
+	<a href="/quickmeals" class="btn btn-success">Quick Meals</a>
+	</div>
+	<div class="random-meals">
+	<p>Save some cash and let the chef choose your menu for the week!</p>
+	<a href="/randommeals" class="btn btn-success">Chef's Choice</a>
+	</div>
 </div>
 </body>
 </html>

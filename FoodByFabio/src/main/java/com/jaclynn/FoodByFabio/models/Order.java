@@ -36,6 +36,15 @@ public class Order {
 	public void setQuickmeals(List<QuickMeal> quickmeals) {
 		this.quickmeals = quickmeals;
 	}
+	
+	//many orders will have many random meals
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+    	name = "randommealorder",
+    	joinColumns = @JoinColumn(name = "order_id"),
+    	inverseJoinColumns = @JoinColumn(name = "randommeal_id")
+    )
+    private List<RandomMeal> randomMeals;
 
 	//many orders will have many quick meals
     @ManyToMany(fetch = FetchType.LAZY)

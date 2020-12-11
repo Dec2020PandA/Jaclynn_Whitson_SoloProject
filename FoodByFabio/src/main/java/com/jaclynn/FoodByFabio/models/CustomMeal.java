@@ -36,10 +36,10 @@ public class CustomMeal {
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
     	name = "custommealingredients",
-    	joinColumns = @JoinColumn(name = "ingredient_id"),
+    	joinColumns = @JoinColumn(name = "recipe_id"),
     	inverseJoinColumns = @JoinColumn(name = "custommeal_id")
     )
-    private List<Ingredient> ingredients;
+    private List<Recipe> ingredients;
     
     @PrePersist
 	protected void onCreate() {
@@ -96,11 +96,11 @@ public class CustomMeal {
 		this.updatedAt = updatedAt;
 	}
 
-	public List<Ingredient> getIngredients() {
+	public List<Recipe> getIngredients() {
 		return ingredients;
 	}
 
-	public void setIngredients(List<Ingredient> ingredients) {
+	public void setIngredients(List<Recipe> ingredients) {
 		this.ingredients = ingredients;
 	}
     

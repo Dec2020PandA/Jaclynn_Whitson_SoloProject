@@ -13,6 +13,8 @@
 </head>
 <body>
 <div class="container">
+<img src="/images/Food-by-fabio-banner.png"><img src="/images/LoginPageMealMed.jpg">
+
 <h1>Welcome</h1>
 <div class="row">
 <div class="col">

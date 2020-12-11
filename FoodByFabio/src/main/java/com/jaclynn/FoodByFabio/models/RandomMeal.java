@@ -39,9 +39,19 @@ public class RandomMeal {
     @JoinTable(
     	name = "randommealingredients",
     	joinColumns = @JoinColumn(name = "randommeal_id"),
-    	inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    	inverseJoinColumns = @JoinColumn(name = "recipe_id")
     )
-    private List<Ingredient> ingredients;
+    private List<Recipe> ingredients;
+    
+    //Many meals can be on many orders
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+    	name = "randommealorder",
+    	joinColumns = @JoinColumn(name = "randommeal_id"),
+    	inverseJoinColumns = @JoinColumn(name = "order_id")
+    )
+    private List<Order> orders;
+    
     
     @PrePersist
 	protected void onCreate() {
@@ -105,11 +115,11 @@ public class RandomMeal {
 		this.updatedAt = updatedAt;
 	}
 
-	public List<Ingredient> getIngredients() {
+	public List<Recipe> getIngredients() {
 		return ingredients;
 	}
 
-	public void setIngredients(List<Ingredient> ingredients) {
+	public void setIngredients(List<Recipe> ingredients) {
 		this.ingredients = ingredients;
 	}
     

@@ -12,51 +12,54 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.PostPersist;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+
 
 @Entity
-@Table(name="ingredients")
-public class Ingredient {
+@Table(name="recipes")
+public class Recipe {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotBlank
-	private String meat;
-	@NotBlank
-	private String meatPortion;
-	@NotBlank
-	private String carb;
-	@NotBlank
-	private String carbPortion;
-	@NotBlank
-	private String veggie;
-	@NotBlank
-	private String veggiePortion;
     @Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
     
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-    	name = "custommealingredients",
-    	joinColumns = @JoinColumn(name = "custommeal_id"),
-    	inverseJoinColumns = @JoinColumn(name = "ingredient_id")
-    )
-    private List<CustomMeal> customMeals;
+    //many recipes will have one meat
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="meat_id")
+    private Meat meat;
+    
+    //many recipes will have one carb
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="carb_id")
+    private Carb carb;
+    
+    //many recipes will have one veggie
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="veggie_id")
+    private Veggie veggie;
+    
     
     //many ingredients will be found in many meals
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
     	name = "randommealingredients",
-    	joinColumns = @JoinColumn(name = "ingredient_id"),
+    	joinColumns = @JoinColumn(name = "recipe_id"),
     	inverseJoinColumns = @JoinColumn(name = "randommeal_id")
     )
     private List<RandomMeal> randomMeals;
     
-    
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+    	name = "custommealingredients",
+    	joinColumns = @JoinColumn(name = "custommeal_id"),
+    	inverseJoinColumns = @JoinColumn(name = "recipe_id")
+    )
+    private List<CustomMeal> customMeals;
     
     @PrePersist
 	protected void onCreate() {
@@ -68,7 +71,7 @@ public class Ingredient {
 		this.updatedAt = new Date();
 	}
 
-	public Ingredient() {
+	public Recipe() {
 		super();
 	}
 
@@ -80,53 +83,7 @@ public class Ingredient {
 		this.id = id;
 	}
 
-	public String getMeat() {
-		return meat;
-	}
 
-	public void setMeat(String meat) {
-		this.meat = meat;
-	}
-
-	public String getMeatPortion() {
-		return meatPortion;
-	}
-
-	public void setMeatPortion(String meatPortion) {
-		this.meatPortion = meatPortion;
-	}
-
-	public String getCarb() {
-		return carb;
-	}
-
-	public void setCarb(String carb) {
-		this.carb = carb;
-	}
-
-	public String getCarbPortion() {
-		return carbPortion;
-	}
-
-	public void setCarbPortion(String carbPortion) {
-		this.carbPortion = carbPortion;
-	}
-
-	public String getVeggie() {
-		return veggie;
-	}
-
-	public void setVeggie(String veggie) {
-		this.veggie = veggie;
-	}
-
-	public String getVeggiePortion() {
-		return veggiePortion;
-	}
-
-	public void setVeggiePortion(String veggiePortion) {
-		this.veggiePortion = veggiePortion;
-	}
 
 	public Date getCreatedAt() {
 		return createdAt;
@@ -158,6 +115,30 @@ public class Ingredient {
 
 	public void setRandomMeals(List<RandomMeal> randomMeals) {
 		this.randomMeals = randomMeals;
+	}
+
+	public Meat getMeat() {
+		return meat;
+	}
+
+	public void setMeat(Meat meat) {
+		this.meat = meat;
+	}
+
+	public Carb getCarb() {
+		return carb;
+	}
+
+	public void setCarb(Carb carb) {
+		this.carb = carb;
+	}
+
+	public Veggie getVeggie() {
+		return veggie;
+	}
+
+	public void setVeggie(Veggie veggie) {
+		this.veggie = veggie;
 	}
     
     
