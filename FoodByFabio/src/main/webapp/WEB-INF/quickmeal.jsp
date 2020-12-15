@@ -16,10 +16,11 @@
 <body>
 <t:wrapper>
 
-<form:form method="Post" action="/addQuickMeal/${id}" modelAttribute="quickMeal">
-<form:input type="hidden" path="orders" value="${order_id}"/>
+<form method="Post" action="/addQuickMeal/">
+
 	<div class="card">
 			<c:forEach var="meal" items="${quickMeals}">
+<input type="hidden" name="meal" value="${meal.id}"/>
   <img class="card-img-top" src="${meal.image_url}" >
   <div class="card-body">
     <h4 class="card-title" value="${meal.id}"> ${meal.name}</h4>
@@ -38,7 +39,7 @@
     <button class="btn btn-primary">Add to Cart</button> 
     	  </c:forEach>
   </div>
-  </form:form>
+  </form>
   <hr>
   
 

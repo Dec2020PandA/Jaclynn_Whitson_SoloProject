@@ -43,13 +43,13 @@
 <h1>Add Quick Meals</h1>
 
 <!-- trying to add images - doesn't work -->
-<!-- <form method="POST" action="/quickmeal/new" enctype="multipart/form-data">
+<form method="POST" action="/quickmeal/new" enctype="multipart/form-data">
 	<div class="form-data">Name of Meal:<input type="text" name="name"></div>
 	<div class="form-data"><textarea name="description">Description of meal:</textarea></div>
 	<div class="form-data">Price of Meal:<input type="text" name="price"></div>
 	<div class="form-data">Select image of meal:<input type="file" name="image"></div>
 	<button>Add Quick Meal</button>
-</form> -->
+</form>
 
 <form:form method="Post" action="/quickmeals/new" modelAttribute="quickmeal">
 	<div class="form-group">

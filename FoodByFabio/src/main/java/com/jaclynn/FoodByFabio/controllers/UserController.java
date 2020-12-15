@@ -61,6 +61,7 @@ public class UserController {
 		Order newOrder = new Order();
 		newOrder.setCustomer(user);
 		this.oService.saveOrder(newOrder);
+		session.setAttribute("order_id", newOrder.getId());
 		
 				
 		//change the return to the home page

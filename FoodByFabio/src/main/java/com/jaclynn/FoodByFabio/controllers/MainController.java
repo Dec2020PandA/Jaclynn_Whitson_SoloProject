@@ -100,13 +100,18 @@ public class MainController {
 	}
 	
 	@PostMapping("/addQuickMeal")
-	public String addOrder(@ModelAttribute("meal") QuickMeal meal, HttpSession session) {
+	public String addOrder(@RequestParam("meal") Long id,  HttpSession session) {
+		System.out.println(id);
 		//get the order from the session
 		Long order_id = (Long)session.getAttribute("order_id");
+		System.out.println(order_id);
 		Order order = this.oService.findOneOrder(order_id);
 		//Get the selected meal from the page
-		QuickMeal qMeal = this.mService.findByIdQuick(meal.getId());
+		QuickMeal qMeal = this.mService.findByIdQuick(id);
 		//add the meal to the order		
+		List<QuickMeal> meals = order.getQuickmeals();
+		meals.add(qMeal);
+		order.setQuickmeals(meals);		
 		this.oService.addQuickMealsToOrder(order, qMeal);
 		//add the order to the quick meal
 		//this.mService.addOrderToQuickMeal(meal, order);
@@ -171,7 +176,9 @@ public class MainController {
 		return "redirect:/admin/add";
 	}
 	
-	/*@PostMapping("/quickmeal/new")
+	
+	//For adding a picture 
+	@PostMapping("/quickmeal/new")
 	public String addQuick(@RequestParam("image") MultipartFile file, @RequestParam("name") String name, @RequestParam("description") String desc, @RequestParam("price") float price, RedirectAttributes redirectAttr, QuickMeal quickmeal) {
 		if(desc.isEmpty()) {
 			redirectAttr.addFlashAttribute("message","Description cannot be empty");
@@ -193,5 +200,5 @@ public class MainController {
 			e.printStackTrace();
 		}
 		return "redirect:/admin/add";
-	}*/
+	}
 }
