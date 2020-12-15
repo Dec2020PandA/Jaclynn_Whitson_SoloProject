@@ -27,10 +27,12 @@ import com.jaclynn.FoodByFabio.models.Order;
 import com.jaclynn.FoodByFabio.models.PickupLocation;
 import com.jaclynn.FoodByFabio.models.Portion;
 import com.jaclynn.FoodByFabio.models.QuickMeal;
+import com.jaclynn.FoodByFabio.models.User;
 import com.jaclynn.FoodByFabio.models.Veggie;
 import com.jaclynn.FoodByFabio.services.MealService;
 import com.jaclynn.FoodByFabio.services.OrderService;
 import com.jaclynn.FoodByFabio.services.UserService;
+
 
 
 @Controller
@@ -49,13 +51,28 @@ public class MainController {
 	
 	@GetMapping("/home")
 	public String home(Model viewModel, HttpSession session) {
-
+		//validates user is logged in and displays user name on page
+		if(session.getAttribute("user_id") == null) {
+			return "redirect:/";
+		}
+		Long userId = (Long)session.getAttribute("user_id");
+		User user = this.uService.findOneUser(userId);
+		viewModel.addAttribute("user", user);
+		
 		return "home.jsp";
 	}
 	
 //SECTION COVERS CUSTOM MEAL PAGE
 	@GetMapping("/custommeals")
-	public String showCustom(Model viewModel,   @ModelAttribute("meats") Meat meat, @ModelAttribute("carbs") Carb carb, @ModelAttribute("veggies") Veggie veggie, @ModelAttribute("meatPortions") Portion meatPortion, @ModelAttribute("carbPortions") Portion carbPortion, @ModelAttribute("vegPortions") Portion vegPortion) {
+	public String showCustom(Model viewModel,   @ModelAttribute("meats") Meat meat, @ModelAttribute("carbs") Carb carb, @ModelAttribute("veggies") Veggie veggie, @ModelAttribute("meatPortions") Portion meatPortion, @ModelAttribute("carbPortions") Portion carbPortion, @ModelAttribute("vegPortions") Portion vegPortion, HttpSession session) {
+		//validates user is logged in and displays user name on page
+		if(session.getAttribute("user_id") == null) {
+			return "redirect:/";
+		}
+		Long userId = (Long)session.getAttribute("user_id");
+		User user = this.uService.findOneUser(userId);
+		viewModel.addAttribute("user", user);
+		
 		List<Meat> meats = this.mService.getAllMeats();
 		viewModel.addAttribute("meats", meats);
 		List<Carb> carbs = this.mService.getAllCarbs();
@@ -70,7 +87,13 @@ public class MainController {
 
 //SECTION COVERS QUICK MEAL PAGE
 	@GetMapping("/quickmeals")
-	public String showQuick(Model viewModel, @ModelAttribute("quickMeal") QuickMeal quickmeal) {
+	public String showQuick(Model viewModel, @ModelAttribute("quickMeal") QuickMeal quickmeal, HttpSession session) {
+		//validates user is logged in and displays user name on page
+		if(session.getAttribute("user_id") == null) {
+			return "redirect:/";
+		}
+		Long userId = (Long)session.getAttribute("user_id");
+		
 		List<QuickMeal> meals = this.mService.getAllQuickMeals();
 		viewModel.addAttribute("quickMeals", meals);
 		return "quickmeal.jsp";

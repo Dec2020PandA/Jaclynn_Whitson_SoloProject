@@ -1,27 +1,40 @@
-/**
- $(document).ready(function(){
-    $('img').click(function(){
-        var backup = $(this).attr('backup-src');
-        var current = $(this).attr('src');
-        $(this).attr('src', backup);
-        $(this).attr('backup-src', current);
-    })
 
-});
- */
- document.ready(function(){
+ $(document).ready(function(){
+    
+ meatChange = function (event){ 
+   if(event.target.value == "1"){
+   		document.getElementById("meatimage").src = "/images/steak2.jpg";
+   	
+   }
+   if(event.target.value == "2"){   		
+   		document.getElementById("meatimage").src = "/images/grilledchicken.jpg";
+   		}
+   if(event.target.value == "3"){
+   		document.getElementById("meatimage").src = "/images/Turkey_Meatballs.jpg";
+   }
+   if(event.target.value == "4"){
+   		document.getElementById("meatimage").src = "/images/salmon.jpg";
+   }
+   if(event.target.value == "5"){
+   		document.getElementById("meatimage").src = "/images/tofu.jpg";
+ 	}
+
+  }
+
+
 	
 
-document.getElementById("quantity").onchange = function() {updatePrice()};
 
-	function updatePrice(){
-			var price = document.getElementById("price").value;
-			console.log(price);
-			var quantity = document.getElementById("quantity").value;
-			document.getElementById("total").innerHTML = "$" + (price*quantity)+"0";
+updatePrice = function (event){
+			var price = event.target.value;
+			var quantity = document.getElementById("quantity").val();
+			var totalPrice = (price * quantity);
+			document.getElementById("total") = totalPrice;
 	
 	}
 	
 
-	
-});
+
+
+
+})

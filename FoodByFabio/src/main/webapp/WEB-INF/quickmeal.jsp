@@ -26,14 +26,15 @@
     <p class="card-text">
       ${meal.description}
     </p>
-    <select name="quantity" id="quantity" onChange="updatePrice()">
+    <select name="quantity" id="quantity" onChange="updatePrice(event)">
     <option value='1'>1</option>
     <option value='2'>2</option>
     <option value='3'>3</option>
     <option value='4'>4</option>
     <option value='5'>5</option>
     </select>
-        <p id="price">Price per item: $${meal.price}0</p>
+        <p id="price">$${meal.price}0</p>
+        <p id="total"></p>
     <button class="btn btn-primary">Add to Cart</button> 
     	  </c:forEach>
   </div>

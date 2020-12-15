@@ -93,8 +93,20 @@ a{
 
 .meal-choice a{
 	height: 75px;
-	width: 125px
-	padding: 0;
+	width: 125px;
+
+}
+
+#custom{
+	display: flex;
+}
+#custom form{
+	margin-top: 100px;
+}
+
+#custom img{
+	margin-left: 150px;
+	height: 450px;
 }
 
 .card{
