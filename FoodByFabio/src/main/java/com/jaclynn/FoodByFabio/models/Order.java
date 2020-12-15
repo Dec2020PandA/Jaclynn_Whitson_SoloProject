@@ -26,16 +26,15 @@ public class Order {
     @Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
-    
-        
-    
-    public List<QuickMeal> getQuickmeals() {
-		return quickmeals;
-	}
 
-	public void setQuickmeals(List<QuickMeal> quickmeals) {
-		this.quickmeals = quickmeals;
-	}
+	//many orders will have many Custom meals
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+    	name = "custommealorder",
+    	joinColumns = @JoinColumn(name = "order_id"),
+    	inverseJoinColumns = @JoinColumn(name = "custommeal_id")
+    )
+    private List<CustomMeal> customMeals;
 	
 	//many orders will have many random meals
     @ManyToMany(fetch = FetchType.LAZY)
@@ -131,6 +130,30 @@ public class Order {
 
 	public void setCustomer(User customer) {
 		this.customer = customer;
+	}
+
+	public List<RandomMeal> getRandomMeals() {
+		return randomMeals;
+	}
+
+	public void setRandomMeals(List<RandomMeal> randomMeals) {
+		this.randomMeals = randomMeals;
+	}
+
+	public List<CustomMeal> getCustomMeals() {
+		return customMeals;
+	}
+
+	public void setCustomMeals(List<CustomMeal> customMeals) {
+		this.customMeals = customMeals;
+	}
+
+	public List<QuickMeal> getQuickmeals() {
+		return quickmeals;
+	}
+
+	public void setQuickmeals(List<QuickMeal> quickmeals) {
+		this.quickmeals = quickmeals;
 	}
     
     

@@ -36,7 +36,7 @@ public class Veggie {
 			inverseJoinColumns = @JoinColumn(name = "portion_id")
 			)
 
-	private List<Portion> portions;
+	private List<Portion> veggiePortions;
 	
 	public Veggie() {
 		super();
@@ -53,12 +53,12 @@ public class Veggie {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List<Portion> getPortions() {
-		return portions;
+	public List<Portion> getVeggiePortions() {
+		return veggiePortions;
 	}
 	
-	public void setPortions(List<Portion> portions) {
-		this.portions = portions;
+	public void setPortions(List<Portion> veggiePortions) {
+		this.veggiePortions = veggiePortions;
 	}
 	public List<Recipe> getRecipes() {
 		return recipes;

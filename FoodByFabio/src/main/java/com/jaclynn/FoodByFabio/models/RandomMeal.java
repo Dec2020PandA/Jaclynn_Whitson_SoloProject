@@ -34,14 +34,14 @@ public class RandomMeal {
     private Date createdAt;
     private Date updatedAt;
     
-    //many meals will have many ingredients
-    @ManyToMany(fetch = FetchType.LAZY)
+    //many meals will have many recipes
+    /*@ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
     	name = "randommealingredients",
     	joinColumns = @JoinColumn(name = "randommeal_id"),
     	inverseJoinColumns = @JoinColumn(name = "recipe_id")
     )
-    private List<Recipe> ingredients;
+    private List<Recipe> ingredients;*/
     
     //Many meals can be on many orders
     @ManyToMany(fetch = FetchType.LAZY)
@@ -115,13 +115,13 @@ public class RandomMeal {
 		this.updatedAt = updatedAt;
 	}
 
-	public List<Recipe> getIngredients() {
+	/*public List<Recipe> getIngredients() {
 		return ingredients;
 	}
 
 	public void setIngredients(List<Recipe> ingredients) {
 		this.ingredients = ingredients;
-	}
+	}*/
     
     
 }

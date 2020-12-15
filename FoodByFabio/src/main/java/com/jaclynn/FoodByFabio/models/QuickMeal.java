@@ -29,13 +29,14 @@ public class QuickMeal {
 	private String description;
 	@DecimalMin(value="0.01")
 	private float price;
-	private int quantity;
+	//private int quantity;
+	private String image_url;
     @Column(updatable=false)
     private Date createdAt;
     private Date updatedAt;
     
     //Many meals can be on many orders
-    @ManyToMany(fetch = FetchType.LAZY)
+   @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
     	name = "quickmealorder",
     	joinColumns = @JoinColumn(name = "quickmeal_id"),
@@ -54,18 +55,29 @@ public class QuickMeal {
 		this.updatedAt = new Date();
 	}
 
-          
+         
+
+
 	public QuickMeal() {
 		super();
 	}
 
-	public int getQuantity() {
+	public QuickMeal(@NotBlank String name, String description, @DecimalMin("0.01") float price, 
+			String image_url) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.image_url = image_url;
+	}
+
+	/*public int getQuantity() {
 		return quantity;
 	}
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
-	}
+	}*/
 
 	public Long getId() {
 		return id;
@@ -115,6 +127,14 @@ public class QuickMeal {
 		this.updatedAt = updatedAt;
 	}
 
+	public String getImage_url() {
+		return image_url;
+	}
+
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+
 	public List<Order> getOrders() {
 		return orders;
 	}
@@ -122,6 +142,14 @@ public class QuickMeal {
 	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
+
+	/*public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}*/
     
     
 	

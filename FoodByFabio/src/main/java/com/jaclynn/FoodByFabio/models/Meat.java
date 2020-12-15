@@ -36,7 +36,7 @@ public class Meat {
 			joinColumns = @JoinColumn(name = "meat_id"),
 			inverseJoinColumns = @JoinColumn(name = "portion_id")
 			)
-	private List<Portion> portions;
+	private List<Portion> meatPortions;
 	
 	public Meat() {
 		super();
@@ -63,13 +63,13 @@ public class Meat {
 	}
 
 
-	public List<Portion> getPortions() {
-		return portions;
+	public List<Portion> getMeatPortions() {
+		return meatPortions;
 	}
 
 
-	public void setPortions(List<Portion> portions) {
-		this.portions = portions;
+	public void setPortions(List<Portion> meatPortions) {
+		this.meatPortions = meatPortions;
 	}
 
 

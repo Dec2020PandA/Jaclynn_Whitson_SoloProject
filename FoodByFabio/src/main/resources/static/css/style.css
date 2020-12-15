@@ -1,22 +1,110 @@
 @charset "ISO-8859-1";
 
+.background{
+	background-image: url("/images/Loginpicture.jpg");
+	padding: 10px;
+	height: 800px;
+
+}
+
+#home-links > *{
+	display: inline-block;
+	text-align: top;
+}
+#home-links p{
+	margin-left: 650px;
+
+}
+
+#home-links a{
+	color: lime;
+	text-shadow: 1px 1px 1px #000000;
+	
+}
+
+.top-banner{
+	background-image: url("/images/Loginpicture.jpg");
+}
+
+#login > *{
+	text-align: center;
+	color: white;
+	padding: 50px;
+	margin-top: 200px;
+	text-shadow: 2px 2px 2px #000000;
+}
+
+#register{
+	text-align: center;
+	color: white;
+	padding: 50px;
+	text-shadow: 2px 2px 2px #000000;
+	vertical-align: bottom;
+}
+
+#register-form{
+	font-size: 20px;
+	margin-top: 60px;
+	font-weight: bold;
+}
+
+
+
+#register-link{
+	margin-top: 80px;
+	font-weight: bold;
+	color: white;
+	font-size: large;
+	text-shadow: 1px 1px 1px #000000;
+}
+
+a{
+	color: lime;
+}
+
+
 .meal-choice{
 	margin: 0 auto;
-	display: inline-block;
+	display: flex;
+	justify-content: space-between;
 	padding: 20px;
 	vertical-align: center;
 
 
 }
 .meal-choice div{
-	display: inline-block;
+	display: flex;
+	justify-content: center;
+
 }
 .meal-choice img{
 	width: 200px;	
+	margin-left: 70px;
 }
 
-.meal-choic p{
-	font-size: 14px;
-    height: 70px;
-    line-height: 120%;
+.meal-choice p{
+	font-size: 20px;
+	text-align: center;
+	margin: 15px;
+	width: 480px;
+
+
+}
+
+.meal-choice a{
+	height: 75px;
+	width: 125px
+	padding: 0;
+}
+
+.card{
+	display: inline-block;
+	margin: 0 auto;
+
+
+
+}
+
+.card-img-top {
+
 }

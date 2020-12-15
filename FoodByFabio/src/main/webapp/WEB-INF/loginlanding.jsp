@@ -9,61 +9,32 @@
 <meta charset="ISO-8859-1">
 <title>Food By Fabio - Healthy Nutrition Delivered</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css">
 
 </head>
 <body>
 <div class="container">
-<img src="/images/Food-by-fabio-banner.png"><img src="/images/LoginPageMealMed.jpg">
+<div class="background">
+	<img src="/images/Food-by-fabio-banner.png"><img src="/images/LoginPageMealMed.jpg">
+	<div id="login" class="text-center">
+		<div class="col">
+			<h1 class="font-weight-bolder text-white">Login</h1>
+			<p class="font-weight-bolder text-white">${loginError}</p>
 
-<h1>Welcome</h1>
-<div class="row">
-<div class="col">
-<h3>Register</h3>
-<form:form action="/register" method="post" modelAttribute="user">
-			    <div class="form-group">
-			        <form:label path="firstName">First Name</form:label>
-			        <form:errors path="firstName"/>
-			        <form:input class="form-control" path="firstName"/>
-			    </div>
-			    <div class="form-group">
-			        <form:label path="lastName">Last Name</form:label>
-			        <form:errors path="lastName"/>
-			        <form:input class="form-control" path="lastName"/>
-			    </div>
-			    <div class="form-group">
-			        <form:label path="email">Email</form:label>
-			        <form:errors path="email"/>
-			       <form:input type="email" class="form-control" path="email"/>
-			    </div>
-			    <div class="form-group">
-			        <form:label path="password">Password</form:label>
-			        <form:errors path="password"/>
-			       <form:input type="password" class="form-control" path="password"/>
-			    </div>
-			    <div class="form-group">
-			        <form:label path="confirmPassword">Confirm Password</form:label>
-			        <form:errors path="confirmPassword"/>
-			       <form:input type="password" class="form-control" path="confirmPassword"/>
-			    </div>
-			    <input class="btn btn-primary" type="submit" value="Register!"/>
-
-</form:form>
-</div>
-<div class="col">
-<h3>Login</h3>
-<p>${loginError}</p>
-<form method="POST" action="/login">
-<div class="form-group">
-<label>Email:</label>
-<input class="form-control" type="email" name="lEmail">
-</div>
-<div class="form-group">
-<label>Password:</label>
-<input class="form-control" type="password" name="lPassword">
-</div>
-<button class="btn btn-success">Login</button>
-</form>
-</div>
+			<form method="POST" action="/login" class="form-inline justify-content-center">
+		<div class="form-group mb-2">
+			<label class="font-weight-bolder text-white">Email:</label>
+			<input class="form-control" type="email" name="lEmail">
+		</div>
+		<div class="form-group mb-2">
+			<label class="font-weight-bolder text-white justify-content-center">Password:</label>
+			<input class="justify-content-center" type="password" name="lPassword">
+		</div>
+		<button class="btn btn-success">Login</button>
+		</form>
+	</div>
+	</div>
+	<p id="register-link" class="float-right">Not a member? <a href="/register">Register</a> for deliciousness delivered!
 </div>
 </div>
 </body>

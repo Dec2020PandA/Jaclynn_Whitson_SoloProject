@@ -36,7 +36,7 @@ public class Carb {
 			joinColumns = @JoinColumn(name = "carb_id"),
 			inverseJoinColumns = @JoinColumn(name = "portion_id")
 			)
-	private List<Portion> portions;
+	private List<Portion> carbPortions;
 	
 	public Carb() {
 		super();
@@ -63,13 +63,13 @@ public class Carb {
 	}
 
 
-	public List<Portion> getPortions() {
-		return portions;
+	public List<Portion> getCarbPortions() {
+		return carbPortions;
 	}
 
 
-	public void setPortions(List<Portion> portions) {
-		this.portions = portions;
+	public void setPortions(List<Portion> carbPortions) {
+		this.carbPortions = carbPortions;
 	}
 
 
@@ -85,3 +85,4 @@ public class Carb {
 	
 	
 }
+

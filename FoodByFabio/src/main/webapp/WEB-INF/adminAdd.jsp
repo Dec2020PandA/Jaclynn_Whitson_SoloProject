@@ -40,6 +40,36 @@
 	<input type="submit" value="Create"/>
 </form:form>
 
+<h1>Add Quick Meals</h1>
+
+<!-- trying to add images - doesn't work -->
+<!-- <form method="POST" action="/quickmeal/new" enctype="multipart/form-data">
+	<div class="form-data">Name of Meal:<input type="text" name="name"></div>
+	<div class="form-data"><textarea name="description">Description of meal:</textarea></div>
+	<div class="form-data">Price of Meal:<input type="text" name="price"></div>
+	<div class="form-data">Select image of meal:<input type="file" name="image"></div>
+	<button>Add Quick Meal</button>
+</form> -->
+
+<form:form method="Post" action="/quickmeals/new" modelAttribute="quickmeal">
+	<div class="form-group">
+	<form:label path="name">Name of Meal::
+	<form:errors path="name"/>
+	<form:input path="name"/></form:label>
+	</div>
+		<div class="form-group">
+	<form:label path="description">Description of Meal:
+	<form:errors path="description"/>
+	<form:input path="description"/></form:label>
+	</div>
+		<div class="form-group">
+	<form:label path="price">Price of Meal::
+	<form:errors path="price"/>
+	<form:input path="price"/></form:label>
+	</div>
+	<input type="submit" value="Create"/>
+</form:form>
+
 
 <h1>Add Available Portions</h1>
 <form:form method="Post" action="/portions/new" modelAttribute="portion">

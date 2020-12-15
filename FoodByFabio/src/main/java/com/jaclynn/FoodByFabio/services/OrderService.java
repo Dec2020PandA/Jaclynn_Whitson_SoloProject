@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.jaclynn.FoodByFabio.models.DeliveryAddress;
 import com.jaclynn.FoodByFabio.models.Order;
 import com.jaclynn.FoodByFabio.models.PickupLocation;
+import com.jaclynn.FoodByFabio.models.QuickMeal;
 import com.jaclynn.FoodByFabio.repositories.DeliveryAddressRepository;
 import com.jaclynn.FoodByFabio.repositories.OrderRepository;
 import com.jaclynn.FoodByFabio.repositories.PickupRepository;
@@ -55,6 +56,14 @@ public class OrderService {
 		return this.dRepo.save(delivery);
 	}
 	
+	//create add meals to created order
+	public Order addQuickMealsToOrder(Order order, QuickMeal meal) {
+
+		//get the list of quick meals
+		List<QuickMeal> qMeals = order.getQuickmeals();
+		qMeals.add(meal);
+		return this.oRepo.save(order);
+	}
 	
 	
 

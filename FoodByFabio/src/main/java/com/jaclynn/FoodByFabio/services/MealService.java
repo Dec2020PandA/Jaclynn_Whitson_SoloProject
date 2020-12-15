@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.jaclynn.FoodByFabio.models.Carb;
 import com.jaclynn.FoodByFabio.models.CustomMeal;
 import com.jaclynn.FoodByFabio.models.Meat;
+import com.jaclynn.FoodByFabio.models.Order;
 import com.jaclynn.FoodByFabio.models.Portion;
 import com.jaclynn.FoodByFabio.models.QuickMeal;
 import com.jaclynn.FoodByFabio.models.RandomMeal;
@@ -46,6 +47,7 @@ public class MealService {
 	public List<CustomMeal> getAllCustomMeals(){
 		return this.cRepo.findAll();
 	}
+
 	public List<QuickMeal> getAllQuickMeals(){
 		return this.qRepo.findAll();		
 	}
@@ -66,6 +68,17 @@ public class MealService {
 	}
 	public List<Recipe> getAllRecipes(){
 		return this.iRepo.findAll();
+	}
+
+//get all meals by order
+	public List<CustomMeal> getAllCustomMealsByOrder(Order order){
+		return this.cRepo.findAllByOrders(order);
+	}
+	public List<QuickMeal> getAllQuickMealsByOrder(Order order){
+		return this.qRepo.findAllByOrders(order);
+	}
+	public List<RandomMeal> getAllRandomMealsByOrder(Order order){
+		return this.rRepo.findAllByOrders(order);
 	}
 	
 	//Get One
@@ -101,6 +114,7 @@ public class MealService {
 	public QuickMeal saveQuickMeal(QuickMeal meal) {
 		return this.qRepo.save(meal);
 	}
+
 	public RandomMeal saveRandomMeal(RandomMeal meal) {
 		return this.rRepo.save(meal);
 	}
@@ -119,6 +133,22 @@ public class MealService {
 	public Recipe saveRecipe(Recipe recipe) {
 		return this.iRepo.save(recipe);
 	}
+	
+	//create quickmeal with an image
+	public QuickMeal saveQuickMealImages(String name, String desc, Float price, String url) {
+		QuickMeal meal = new QuickMeal(name, desc, price, url);
+		return this.qRepo.save(meal);
+	}
+	
+	//add an order to the list of orders for quick meals
+	public QuickMeal addOrderToQuickMeal(QuickMeal meal, Order order) {
+		//get the list of orders
+		List<Order> orders = meal.getOrders();
+		//add the order to the list
+		orders.add(order);
+		return this.qRepo.save(meal);
+	}
+	
 	
 	//delete
 	public void deleteCustomMeal(Long id) {

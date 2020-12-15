@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +12,8 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<div class="container">
-	<div class="top-banner">
-	<img src="/images/Food-by-fabio-banner.png">
-	</div>
+<t:wrapper>
+
 	<div class="meal-choice">
 	<img src="/images/custommeal.jpg">
 	<p>Customize your portions to build the body you want.</p>
@@ -30,6 +29,6 @@
 	<p>Save some cash and let the chef choose your menu for the week!</p>
 	<a href="/randommeals" class="btn btn-success">Chef's Choice</a>
 	</div>
-</div>
+</t:wrapper>
 </body>
 </html>

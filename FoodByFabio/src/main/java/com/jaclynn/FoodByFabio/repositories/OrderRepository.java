@@ -10,4 +10,6 @@ import com.jaclynn.FoodByFabio.models.Order;
 @Repository
 public interface OrderRepository extends CrudRepository<Order, Long>{
 	List<Order> findAll();
+	
+	
 }
